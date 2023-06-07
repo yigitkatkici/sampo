@@ -1,2 +1,0 @@
-# sampo
-Sample Categorizer

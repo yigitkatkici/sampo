@@ -11,16 +11,18 @@ import xlsxwriter
 workbook = xlsxwriter.Workbook('Sampo.xlsx')
 
 worksheet = workbook.add_worksheet()
-
-dire = r"C:\users\gambi\sampo\sampo"
+cwd = os.getcwd()
+#dire = r"C:\users\gambi\sampo\sampo"
+dire = cwd
 
 #oneshot = "W:\Samples\MoveThemTunes\oneshot"
 #loop = "W:\Samples\MoveThemTunes\loop"
 directory = os.fsencode(dire)
 count = 0
-
 for subdir, dirs, files in os.walk(dire):
     for file in files:
+        type = "none"
+        category = "none"
         fullpath = os.path.join(subdir, file)
         ##print(fullpath)
         if file.endswith(".wav"):
@@ -32,70 +34,71 @@ for subdir, dirs, files in os.walk(dire):
             colc = "C"+str(count)
             cold = "D"+str(count)
             cole = "E"+str(count)
-            if (dur < 1):
+            if (dur < 2.2):
+                type = "oneshot"
                 ##shutil.move(fullpath, os.path.join(oneshot,file))
-                if("snare" in fullpath.lower()):
-                    print ("snare")
-                    worksheet.write(cola, fullpath)
-                    worksheet.write(colb, 'snare') 
-                    worksheet.write(colc, 'one-shot')
-                    worksheet.write(cold, dur)
-                elif("hat" in fullpath.lower()):
-                    print ("hat")
-                    worksheet.write(cola, fullpath)
-                    worksheet.write(colb, 'hat') 
-                    worksheet.write(colc, 'one-shot')
-                    worksheet.write(cold, dur)
-                elif("bass" in fullpath or "synth" in fullpath.lower()):
-                    print ("bass")
-                    worksheet.write(cola, fullpath)
-                    worksheet.write(colb, 'bass') 
-                    worksheet.write(colc, 'one-shot')
-                    worksheet.write(cold, dur)
-                elif("vocal" in fullpath.lower()):
-                    print ("vocal")
-                    worksheet.write(cola, fullpath)
-                    worksheet.write(colb, 'vocal') 
-                    worksheet.write(colc, 'one-shot')
-                    worksheet.write(cold, dur)
-                else: 
-                    print("uncategorized")
-                    worksheet.write(cola, fullpath)
-                    worksheet.write(colb, 'uncategorized') 
-                    worksheet.write(colc, 'one-shot')
-                    worksheet.write(cold, dur)
             else:
+                type = "loop"
                 ##shutil.move(fullpath, os.path.join(oneshot,file))
-                if("drum" in fullpath.lower()):
+            if("drum" in file.lower()):
                     print ("drum")
-                    worksheet.write(cola, fullpath)
-                    worksheet.write(colb, 'drum') 
-                    worksheet.write(colc, 'loop')
-                    worksheet.write(cold, dur)
-                elif("vocal" in fullpath.lower()):
+                    category = "drum"
+            elif("snare" in file.lower()):
+                    print ("snare")
+                    category = "snare"
+            elif("kick" in file.lower()):
+                    print ("kick")
+                    category = "kick"
+            elif("guitar" in file.lower()):
+                    print ("kick")
+                    category = "kick"
+            elif("phrase" in file.lower()):
+                    print ("phrase")
+                    category = "phrase"
+            elif("clap" in file.lower()):
+                    print ("clap")
+                    category = "clap"
+            elif("hat" in file.lower()):
+                    category = "hat"
+            elif("bass" in file.lower()):
+                    category = "bass"
+            elif("percu" in file.lower()):
+                    print ("percussion")
+                    category = "percussion"
+            elif("vocal" in file.lower()):
                     print ("vocal")
-                    worksheet.write(cola, fullpath)
-                    worksheet.write(colb, 'vocal') 
-                    worksheet.write(colc, 'loop')
-                    worksheet.write(cold, dur)
-                elif("bass" in fullpath or "synth" in fullpath.lower()):
-                    print ("bass")
-                    worksheet.write(cola, fullpath)
-                    worksheet.write(colb, 'bass') 
-                    worksheet.write(colc, 'loop')
-                    worksheet.write(cold, dur)
-                elif("arp" in fullpath.lower()):
-                    print ("arp")
-                    worksheet.write(cola, fullpath)
-                    worksheet.write(colb, 'arp') 
-                    worksheet.write(colc, 'loop')
-                    worksheet.write(cold, dur)
-                else:
+                    category = "vocal"
+            elif("synth" in file.lower()):
+                    print ("synth")
+                    category = "synth"
+            elif("pad" in file.lower()):
+                    print ("pad")
+                    category = "pad"
+            elif("lead" in file.lower()):
+                    print ("lead")
+                    category = "lead"
+            elif("arp" in file.lower()):
+                    category = "arp"
+            elif ("chord" in file.lower()):
+                    category = "chord"
+            elif ("riser" in file.lower() or "uplifter" in file.lower()):
+                    print ("riser")
+                    category = "riser"
+            elif ("downer" in file.lower() or "downlifter" in file.lower()):
+                    print ("downlifter")
+                    category = "downlifter"
+            elif ("sweep" in file.lower()):
+                    print ("sweep")
+                    category = "sweep"
+            elif ("piano" in file.lower()):
+                    print ("piano")
+                    category = "piano"
+            else: 
                     print("uncategorized")
-                    worksheet.write(cola, fullpath)
-                    worksheet.write(colb, 'uncategorized') 
-                    worksheet.write(colc, 'loop')
-                    worksheet.write(cold, dur)
+            worksheet.write(cola, fullpath)
+            worksheet.write(colb, category) 
+            worksheet.write(colc, type)
+            worksheet.write(cold, dur)
             print('totals: ', count)
 workbook.close()
 #for file in os.listdir(directory):
