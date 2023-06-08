@@ -24,6 +24,7 @@ for subdir, dirs, files in os.walk(dire):
     for file in files:
         type = "none"
         category = "none"
+        key = "none"
         tempo = 0
         fullpath = os.path.join(subdir, file)
         ##print(fullpath)
@@ -43,6 +44,7 @@ for subdir, dirs, files in os.walk(dire):
             colc = "C"+str(count)
             cold = "D"+str(count)
             cole = "E"+str(count)
+            colf = "F"+str(count)
 
             if (dur < 2.2):
                 type = "oneshot"
@@ -195,13 +197,268 @@ for subdir, dirs, files in os.walk(dire):
             else:
                 print("uncategorized")
                 category = "uncategorized"
+            ##KEY
+            if("_f_" in file.lower() or "f_major" in file.lower() or "f_maj" in file.lower()):
+                print ("F major")
+                key = "_F_major"
+            elif("_g_" in file.lower() or "g_major" in file.lower() or "g_maj" in file.lower()):
+                print ("G major")
+                key = "_G_major"
+            elif("_a_" in file.lower() or "a_major" in file.lower() or "a_maj" in file.lower()):
+                print ("A major")
+                key = "_A_major"
+            elif("_b_" in file.lower() or "b_major" in file.lower() or "b_maj" in file.lower()):
+                print ("B major")
+                key = "_B_major"
+            elif("_c_" in file.lower() or"c_major" in file.lower() or "c_maj" in file.lower()):
+                print ("C major")
+                key = "_C_major"
+            elif("_d_" in file.lower() or"d_major" in file.lower() or "d_maj" in file.lower()):
+                print ("D major")
+                key = "_D_major"
+            elif("_e_" in file.lower() or "e_major" in file.lower() or "e_maj" in file.lower()):
+                print ("E major")
+                key = "_E_major"
+            #minors
+            elif("fm" in file.lower() or "f_minor" in file.lower() or "f_min" in file.lower() or "fmin" in file.lower()):
+                print ("F minor")
+                key = "_F_minor"
+            elif("gm" in file.lower() or "g_minor" in file.lower() or "g_min" in file.lower() or "gmin" in file.lower()):
+                print ("G minor")
+                key = "_G_minor"
+            elif("am" in file.lower() or "a_minor" in file.lower() or "a_min" in file.lower() or "amin" in file.lower()):
+                print ("A minor")
+                key = "_A_minor"
+            elif("bm" in file.lower() or "b_minor" in file.lower() or "b_min" in file.lower()) or "bmin" in file.lower():
+                print ("B minor")
+                key = "_B_minor"
+            elif("cm" in file.lower() or "c_minor" in file.lower() or "c_min" in file.lower() or "cmin" in file.lower()):
+                print ("C minor")
+                key = "_C_minor"
+            elif("dm" in file.lower() or "d_minor" in file.lower() or "d_min" in file.lower() or "dmin" in file.lower()):
+                print ("D minor")
+                key = "_D_major"
+            elif("em" in file.lower() or "e_minor" in file.lower() or "e_min" in file.lower()) or "emin" in file.lower():
+                print ("E minor")
+                key = "_E_minor"
+            #sharps
+            elif("f#" in file.lower()):
+                print ("F sharp")
+                key = "_F_sharp"
+            elif("g#" in file.lower()):
+                print ("G sharp")
+                key = "_G_sharp"
+            elif("a#" in file.lower()):
+                print ("A sharp")
+                key = "_A_sharp"
+            elif("b#" in file.lower()):
+                print ("B sharp")
+                key = "_B_sharp"
+            elif("c#" in file.lower()):
+                print ("C sharp")
+                key = "_C_sharp"
+            elif("d#" in file.lower()):
+                print ("D sharp")
+                key = "_D_sharp"
+            elif("e#" in file.lower()):
+                print ("E sharp")
+                key = "_E_sharp"
+
+            elif("f#m" in file.lower()):
+                print ("F sharp minor")
+                key = "_F_sharp_minor"
+            elif("g#m" in file.lower()):
+                print ("G sharp minor")
+                key = "_G_sharp_minor"
+            elif("a#m" in file.lower()):
+                print ("A sharp minor")
+                key = "_A_sharp_minor"
+            elif("b#m" in file.lower()):
+                print ("B sharp minor")
+                key = "_B_sharp_minor"
+            elif("c#m" in file.lower()):
+                print ("C sharp minor")
+                key = "_C_sharp_minor"
+            elif("d#m" in file.lower()):
+                print ("D sharp minor")
+                key = "_D_sharp_minor"
+            elif("e#m" in file.lower()):
+                print ("E sharp minor")
+                key = "_E_sharp_minor"
+            elif("f#" in file.lower()):
+                print ("F sharp")
+                key = "_F_sharp"
+            elif("g#" in file.lower()):
+                print ("G sharp")
+                key = "_G_sharp"
+            elif("a#" in file.lower()):
+                print ("A sharp")
+                key = "_A_sharp"
+            elif("b#" in file.lower()):
+                print ("B sharp")
+                key = "_B_sharp"
+            elif("c#" in file.lower()):
+                print ("C sharp")
+                key = "_C_sharp"
+            elif("d#" in file.lower()):
+                print ("D sharp")
+                key = "_D_sharp"
+            elif("e#" in file.lower()):
+                print ("E sharp")
+                key = "_E_sharp"
+            #Flats
+            elif("fb" in file.lower()):
+                print ("F flat minor")
+                key = "_F_flat_minor"
+            elif("gb" in file.lower()):
+                print ("G flat minor")
+                key = "_G_flat_minor"
+            elif("ab" in file.lower()):
+                print ("A flat minor")
+                key = "_A_flat_minor"
+            elif("bb" in file.lower()):
+                print ("B flat minor")
+                key = "_B_flat_minor"
+            elif("cb" in file.lower()):
+                print ("C flat minor")
+                key = "_C_flat_minor"
+            elif("db" in file.lower()):
+                print ("D flat minor")
+                key = "_D_flat_minor"
+            elif("eb" in file.lower()):
+                print ("E flat minor")
+                key = "_E_flat_minor"
+
+            elif("fbm" in file.lower()):
+                print ("F flat minor")
+                key = "_F_flat_minor"
+            elif("gbm" in file.lower()):
+                print ("G f;at minor")
+                key = "_G_flat_minor"
+            elif("abm" in file.lower()):
+                print ("A flat minor")
+                key = "_A_flat_minor"
+            elif("bbm" in file.lower()):
+                print ("B flat minor")
+                key = "_B_flat_minor"
+            elif("cbm" in file.lower()):
+                print ("C flat minor")
+                key = "_C_flat_minor"
+            elif("dbm" in file.lower()):
+                print ("D flat minor")
+                key = "_D_flat_minor"
+            elif("ebm" in file.lower()):
+                print ("E flat minor")
+                key = "_E_flat_minor"
+            
+            else:
+                print ("Key not found")
+                key = "uncategorized"
             worksheet.write(cola, fullpath)
             worksheet.write(colb, category) 
             worksheet.write(colc, type)
             worksheet.write(cold, dur)
             worksheet.write(cole, tempo)
+            worksheet.write(colf, key)
             print('totals: ', count)
 workbook.close()
+"""
+Exclusive            
+_F_
+_G_
+_A_
+_B_
+_C_
+_D_
+_E_
+
+_F
+_G
+_A
+_B
+_C
+_D
+_E
+
+f_major
+g_major
+a_major
+b_major
+c_major
+d_major
+e_major
+
+Fmaj
+Gmaj
+Amaj
+Bmaj
+Cmaj
+Dmaj
+Emaj
+
+minors
+Fm
+Gm
+Am
+Bm
+Cm
+Dm
+Em
+
+f_minor
+g_minor
+a_minor
+b_minor
+c_minor
+d_minor
+e_minor
+
+Fmin
+Gmin
+Amin
+Bmin
+Cmin
+Dmin
+Emin
+
+Sharps
+F#m
+G#m
+A#m
+B#m
+C#m
+D#m
+E#m
+
+F#
+G#
+A#
+B#
+C#
+D#
+E#
+
+flat minors
+fbm
+gbm
+abm
+bbm
+cbm
+dbm
+ebm
+
+flat majors
+fb
+gb
+ab
+bb
+cb
+db
+eb
+"""
+
+
+            
 #for file in os.listdir(directory):
 #     filename = os.fsdecode(file)
 #     if filename.endswith(".wav"): 
