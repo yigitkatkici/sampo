@@ -30,11 +30,12 @@ for subdir, dirs, files in os.walk(dire):
         ##print(fullpath)
         numbers = re.findall(r'\d+', file)
         if(len(numbers) >0):
-            print("tempo listed")
-            print (numbers[0])
+            print("tempo candidate")
             for x in numbers:
-                if int(x) > 40:
-                    tempo = x
+                if (int(x)>40 and int(x)>int(tempo)):
+                    tempo=x
+                #if int(x) > 40:
+                #    tempo = x
         if file.endswith(".wav"):
             dur = librosa.get_duration(path = fullpath)
             print(dur)
@@ -95,6 +96,9 @@ for subdir, dirs, files in os.walk(dire):
             elif ("chord" in file.lower()):
                 print ("chord")
                 category = "chord"
+            elif ("adlib" in file.lower()):
+                print ("adlib")
+                category = "adlib"
             elif ("riser" in file.lower() or "uplifter" in file.lower()):
                 print ("riser")
                 category = "riser"
@@ -241,28 +245,7 @@ for subdir, dirs, files in os.walk(dire):
             elif("em" in file.lower() or "e_minor" in file.lower() or "e_min" in file.lower()) or "emin" in file.lower():
                 print ("E minor")
                 key = "_E_minor"
-            #sharps
-            elif("f#" in file.lower()):
-                print ("F sharp")
-                key = "_F_sharp"
-            elif("g#" in file.lower()):
-                print ("G sharp")
-                key = "_G_sharp"
-            elif("a#" in file.lower()):
-                print ("A sharp")
-                key = "_A_sharp"
-            elif("b#" in file.lower()):
-                print ("B sharp")
-                key = "_B_sharp"
-            elif("c#" in file.lower()):
-                print ("C sharp")
-                key = "_C_sharp"
-            elif("d#" in file.lower()):
-                print ("D sharp")
-                key = "_D_sharp"
-            elif("e#" in file.lower()):
-                print ("E sharp")
-                key = "_E_sharp"
+
 
             elif("f#m" in file.lower()):
                 print ("F sharp minor")
@@ -285,6 +268,29 @@ for subdir, dirs, files in os.walk(dire):
             elif("e#m" in file.lower()):
                 print ("E sharp minor")
                 key = "_E_sharp_minor"
+
+            elif("f#min" in file.lower()):
+                print ("F sharp minor")
+                key = "_F_sharp_minor"
+            elif("g#min" in file.lower()):
+                print ("G sharp minor")
+                key = "_G_sharp_minor"
+            elif("a#min" in file.lower()):
+                print ("A sharp minor")
+                key = "_A_sharp_minor"
+            elif("b#min" in file.lower()):
+                print ("B sharp minor")
+                key = "_B_sharp_minor"
+            elif("c#min" in file.lower()):
+                print ("C sharp minor")
+                key = "_C_sharp_minor"
+            elif("d#min" in file.lower()):
+                print ("D sharp minor")
+                key = "_D_sharp_minor"
+            elif("e#min" in file.lower()):
+                print ("E sharp minor")
+                key = "_E_sharp_minor"
+
             elif("f#" in file.lower()):
                 print ("F sharp")
                 key = "_F_sharp"
@@ -306,29 +312,8 @@ for subdir, dirs, files in os.walk(dire):
             elif("e#" in file.lower()):
                 print ("E sharp")
                 key = "_E_sharp"
-            #Flats
-            elif("fb" in file.lower()):
-                print ("F flat minor")
-                key = "_F_flat_minor"
-            elif("gb" in file.lower()):
-                print ("G flat minor")
-                key = "_G_flat_minor"
-            elif("ab" in file.lower()):
-                print ("A flat minor")
-                key = "_A_flat_minor"
-            elif("bb" in file.lower()):
-                print ("B flat minor")
-                key = "_B_flat_minor"
-            elif("cb" in file.lower()):
-                print ("C flat minor")
-                key = "_C_flat_minor"
-            elif("db" in file.lower()):
-                print ("D flat minor")
-                key = "_D_flat_minor"
-            elif("eb" in file.lower()):
-                print ("E flat minor")
-                key = "_E_flat_minor"
 
+            #Flats
             elif("fbm" in file.lower()):
                 print ("F flat minor")
                 key = "_F_flat_minor"
@@ -348,6 +333,28 @@ for subdir, dirs, files in os.walk(dire):
                 print ("D flat minor")
                 key = "_D_flat_minor"
             elif("ebm" in file.lower()):
+                print ("E flat minor")
+                key = "_E_flat_minor"
+
+            elif("fb" in file.lower()):
+                print ("F flat minor")
+                key = "_F_flat_minor"
+            elif("gb" in file.lower()):
+                print ("G flat minor")
+                key = "_G_flat_minor"
+            elif("ab" in file.lower()):
+                print ("A flat minor")
+                key = "_A_flat_minor"
+            elif("bb" in file.lower()):
+                print ("B flat minor")
+                key = "_B_flat_minor"
+            elif("cb" in file.lower()):
+                print ("C flat minor")
+                key = "_C_flat_minor"
+            elif("db" in file.lower()):
+                print ("D flat minor")
+                key = "_D_flat_minor"
+            elif("eb" in file.lower()):
                 print ("E flat minor")
                 key = "_E_flat_minor"
             
