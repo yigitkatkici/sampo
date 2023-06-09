@@ -4,7 +4,7 @@
 
 import os
 import librosa
-#import shutil
+import shutil
 import re
 
 import xlsxwriter
@@ -16,8 +16,8 @@ cwd = os.getcwd()
 #dire = r"C:\users\gambi\sampo\sampo"
 dire = cwd
 
-#oneshot = "W:\Samples\MoveThemTunes\oneshot"
-#loop = "W:\Samples\MoveThemTunes\loop"
+oneshot = cwd+"\oneshot"
+loop = cwd+"\loop"
 directory = os.fsencode(dire)
 count = 0
 for subdir, dirs, files in os.walk(dire):
@@ -46,13 +46,8 @@ for subdir, dirs, files in os.walk(dire):
             cold = "D"+str(count)
             cole = "E"+str(count)
             colf = "F"+str(count)
-
-            if (dur < 2.2):
-                type = "oneshot"
-                ##shutil.move(fullpath, os.path.join(oneshot,file))
-            else:
-                type = "loop"
-                ##shutil.move(fullpath, os.path.join(oneshot,file))
+            colg = "G"+str(count)
+            # Sample TYPE
             if("drum" in file.lower()):
                 print ("drum")
                 category = "drum"
@@ -60,9 +55,6 @@ for subdir, dirs, files in os.walk(dire):
                 print ("snare")
                 category = "snare"
             elif("kick" in file.lower()):
-                print ("kick")
-                category = "kick"
-            elif("guitar" in file.lower()):
                 print ("kick")
                 category = "kick"
             elif("phrase" in file.lower()):
@@ -129,8 +121,8 @@ for subdir, dirs, files in os.walk(dire):
             elif ("choir" in file.lower()):
                 print ("choir")
                 category = "choir"
-            elif ("gtr" in file.lower() or "lick" in file.lower() or "elec" in file.lower() or "pluck" in file.lower() or "strum" in file.lower()):
-                print ("gtr")
+            elif ("gtr" in file.lower() or "lick" in file.lower() or "elec" in file.lower() or "pluck" in file.lower() or "strum" in file.lower() or "guitar" in file.lower()):
+                print ("guitar")
                 category = "guitar"
             elif ("tom" in file.lower()):
                 print ("tom")
@@ -201,7 +193,7 @@ for subdir, dirs, files in os.walk(dire):
             else:
                 print("uncategorized")
                 category = "uncategorized"
-            ##KEY
+            # Sample KEY
             if("_f_" in file.lower() or "f_major" in file.lower() or "f_maj" in file.lower()):
                 print ("F major")
                 key = "_F_major"
@@ -246,7 +238,7 @@ for subdir, dirs, files in os.walk(dire):
                 print ("E minor")
                 key = "_E_minor"
 
-
+            #sharp
             elif("f#m" in file.lower()):
                 print ("F sharp minor")
                 key = "_F_sharp_minor"
@@ -357,125 +349,89 @@ for subdir, dirs, files in os.walk(dire):
             elif("eb" in file.lower()):
                 print ("E flat minor")
                 key = "_E_flat_minor"
-            
+
+            elif("_f" in file.lower()):
+                print ("F major")
+                key = "_F_major"
+            elif("_g" in file.lower()):
+                print ("G major")
+                key = "_G_major"
+            elif("_a" in file.lower()):
+                print ("A major")
+                key = "_A_major"
+            elif("_b" in file.lower()):
+                print ("B major")
+                key = "_B_major"
+            elif("_c" in file.lower()):
+                print ("C major")
+                key = "_C_major"
+            elif("_d" in file.lower()):
+                print ("D major")
+                key = "_D_major"
+            elif("_e" in file.lower()):
+                print ("E major")
+                key = "_E_major"
             else:
                 print ("Key not found")
                 key = "uncategorized"
+            # Sample genre
+            if("house" in subdir.lower() or "club" in subdir.lower() or "disco" in subdir.lower() or "edm" in subdir.lower()):
+                print ("house")
+                category = "house"
+            if("tech" in subdir.lower() or "techno" in subdir.lower() or "trance" in subdir.lower() or "psy" in subdir.lower() or "acid" in subdir.lower() or "rave" in subdir.lower()):
+                print ("trance")
+                category = "trance" 
+            elif("funk" in subdir.lower() or "blues" in subdir.lower() or "jazz" in subdir.lower()):
+                print ("funky")
+                category = "funky"
+            elif("afro" in subdir.lower() or "reggae" in subdir.lower() or "moombahton" in subdir.lower()  or "groove" in subdir.lower()):
+                print ("groovy")
+                category = "groovy"
+            elif("jungle" in subdir.lower() or "garage" in subdir.lower() or "grime" in subdir.lower() or "Drum and bass" in subdir.lower() or "dnb" in subdir.lower() or "drum&bass" in subdir.lower() or "drum & bass" in subdir.lower() or "drum_&_bass" in subdir.lower()):
+                print ("brit")
+                category = "brit"
+            elif("downtempo" in subdir.lower() or "lofi" in subdir.lower() or "lo-fi" in subdir.lower() or "ambient" in subdir.lower()):
+                print ("lofi")
+                category = "lofi"
+            elif("rnb" in subdir.lower() or "pop" in subdir.lower() or "soul" in subdir.lower() or "indie" in subdir.lower() or "urban" in subdir.lower()):
+                print ("pop")
+                category = "pop"
+            elif("trapstep" in subdir.lower() or "dubstep" in subdir.lower() or "discostep" in subdir.lower() or "hardstep" in subdir.lower() or "chillstep" in subdir.lower()):
+                print ("dubstep")
+                category = "dubstep"
+            elif("ethnic" in subdir.lower() or "greek" in subdir.lower() or "turk" in subdir.lower() or "spanish" in subdir.lower() or "asia" in subdir.lower() or "india" in subdir.lower() or "mantra" in subdir.lower()):
+                print ("ethnic")
+                category = "ethnic"
+            elif("drill" in subdir.lower() or "trap" in subdir.lower() or "hip hop" in subdir.lower() or "hip-hop" in subdir.lower() or "chillhop" in subdir.lower()):
+                print ("trap")
+                category = "trap"
+            elif("nu_wave" in subdir.lower() or "nu wave" in subdir.lower() or "nuwave" in subdir.lower() or "nudisco" in subdir.lower() or "nu disco" in subdir.lower() or "nu_disco" in subdir.lower() or "neofunk" in subdir.lower()):
+                print ("nu_wav")
+                category = "nu_wav"
+            elif("synthwave" in subdir.lower() or "retro" in subdir.lower()):
+                print ("synthwave")
+                category = "synthwave"
+            elif("cinematic" in subdir.lower() or "foley" in subdir.lower()):
+                print ("cinematic")
+                category = "cinematic"
+            elif("rock" in subdir.lower() or "metal" in subdir.lower()):
+                print ("rock")
+                category = "rock"
+            elif("glitch" in subdir.lower()):
+                category = "glitch"
+            elif("bass" in subdir.lower()):
+                print ("bass")
+                category = "bass"
+            elif("vocal" in subdir.lower() or "acapella" in subdir.lower()):
+                print ("vocal")
+                category = "vocal"
+
             worksheet.write(cola, fullpath)
             worksheet.write(colb, category) 
             worksheet.write(colc, type)
             worksheet.write(cold, dur)
             worksheet.write(cole, tempo)
             worksheet.write(colf, key)
+            worksheet.write(colg, key)
             print('totals: ', count)
 workbook.close()
-"""
-Exclusive            
-_F_
-_G_
-_A_
-_B_
-_C_
-_D_
-_E_
-
-_F
-_G
-_A
-_B
-_C
-_D
-_E
-
-f_major
-g_major
-a_major
-b_major
-c_major
-d_major
-e_major
-
-Fmaj
-Gmaj
-Amaj
-Bmaj
-Cmaj
-Dmaj
-Emaj
-
-minors
-Fm
-Gm
-Am
-Bm
-Cm
-Dm
-Em
-
-f_minor
-g_minor
-a_minor
-b_minor
-c_minor
-d_minor
-e_minor
-
-Fmin
-Gmin
-Amin
-Bmin
-Cmin
-Dmin
-Emin
-
-Sharps
-F#m
-G#m
-A#m
-B#m
-C#m
-D#m
-E#m
-
-F#
-G#
-A#
-B#
-C#
-D#
-E#
-
-flat minors
-fbm
-gbm
-abm
-bbm
-cbm
-dbm
-ebm
-
-flat majors
-fb
-gb
-ab
-bb
-cb
-db
-eb
-"""
-
-
-            
-#for file in os.listdir(directory):
-#     filename = os.fsdecode(file)
-#     if filename.endswith(".wav"): 
-#         fullpath = os.path.join(dire, filename)
-#         dur = librosa.get_duration(path = fullpath)
-#         print (dur)
-#         continue
-#     else:
-#         continue
-#drum
-#synth, arpeggio, melody, rhode, arp
-#bass
-#vocal
