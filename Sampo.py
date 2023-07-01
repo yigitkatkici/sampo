@@ -28,7 +28,7 @@ justScan = True
 
 while move == False:
     print("Welcome to Sampo, no frills sample analizer.")
-    type = input("would you like Sampo to arrange your samples loop and one shot? YES OR NO ")
+    type = input("would you like Sampo to arrange your samples as loop and one shot? YES OR NO ")
     tempo = input("would you like Sampo to arrange your samples by tempo? YES or NO ")
     note = input("would you like Sampo to arrange your samples by note? YES or NO ")
     category = input("would you like Sampo to arrange your samples by category? YES or NO ")
