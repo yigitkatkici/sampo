@@ -100,7 +100,7 @@ if(scan):
             type = "none"
             category = "none"
             key = "none"
-            tempo = 0
+            tempo = "NA"
             fullpath = os.path.join(subdir, file)
             ##print(fullpath)
             
@@ -118,107 +118,107 @@ if(scan):
                 # Sample TYPE
                 if("drum" in file.lower() or "break" in file.lower()):
                     print ("drum")
-                    category = "drum"
+                    category = "Drum"
                 elif("snare" in file.lower()):
                     print ("snare")
-                    category = "snare"
+                    category = "Snare"
                 elif("kick" in file.lower()):
                     print ("kick")
-                    category = "kick"
+                    category = "Kick"
                 elif("phrase" in file.lower()):
                     print ("phrase")
-                    category = "phrase"
+                    category = "Phrase"
                 elif("clap" in file.lower()):
                     print ("clap")
-                    category = "clap"
+                    category = "Clap"
                 elif("hat" in file.lower()):
-                    category = "hat"
+                    category = "Hat"
                 elif("bass" in file.lower()):
-                    category = "bass"
+                    category = "Bass"
                 elif("perc" in file.lower()):
                     print ("percussion")
-                    category = "percussion"
+                    category = "Percussion"
                 elif("vocal" in file.lower()):
                     print ("vocal")
-                    category = "vocal"
+                    category = "Vocal"
                 elif("synth" in file.lower() or "syn" in file.lower()):
                     print ("synth")
-                    category = "synth"
+                    category = "Synth"
                 elif("pad" in file.lower()):
                     print ("pad")
-                    category = "pad"
+                    category = "Pad"
                 elif("lead" in file.lower()):
                     print ("lead")
-                    category = "lead"
+                    category = "Lead"
                 elif("arp" in file.lower()):
                     print ("arp")
-                    category = "arp"
+                    category = "Arp"
                 elif ("chord" in file.lower()):
                     print ("chord")
-                    category = "chord"
+                    category = "Chord"
                 elif ("adlib" in file.lower()):
                     print ("adlib")
-                    category = "adlib"
+                    category = "Adlib"
                 elif ("riser" in file.lower() or "uplifter" in file.lower()):
                     print ("riser")
-                    category = "riser"
+                    category = "Riser"
                 elif ("downer" in file.lower() or "downlifter" in file.lower()):
                     print ("downlifter")
-                    category = "downlifter"
+                    category = "Downlifter"
                 elif ("sweep" in file.lower()):
                     print ("sweep")
-                    category = "sweep"
+                    category = "Sweep"
                 elif ("stab" in file.lower()):
                     print ("stab")
-                    category = "stab"
-                elif ("strum" in file.lower()):
-                    print ("strum")
-                    category = "stab"
+                    category = "Stab"
+                #elif ("strum" in file.lower()):
+                #    print ("strum")
+                #    category = "Strum"
                 elif ("piano" in file.lower() or "rhodes" in file.lower()  or "clav" in file.lower()):
-                    print ("piano")
+                    print ("Piano")
                     category = "piano"
                 elif ("horn" in file.lower()):
                     print ("horn")
-                    category = "horn"
+                    category = "Horn"
                 elif ("flute" in file.lower()):
                     print ("flute")
-                    category = "flute"
+                    category = "Flute"
                 elif ("violin" in file.lower()):
                     print ("violin")
-                    category = "violin"
+                    category = "Violin"
                 elif ("choir" in file.lower()):
                     print ("choir")
-                    category = "choir"
+                    category = "Choir"
                 elif ("gtr" in file.lower() or "lick" in file.lower() or "elec" in file.lower() or "pluck" in file.lower() or "strum" in file.lower() or "guitar" in file.lower()):
                     print ("guitar")
-                    category = "guitar"
+                    category = "Guitar"
                 elif ("tom" in file.lower()):
                     print ("tom")
-                    category = "tom"
+                    category = "Tom"
                 elif ("shaker" in file.lower()):
                     print ("shaker")
-                    category = "shaker"
+                    category = "Shaker"
                 elif ("vox" in file.lower() or "voc" in file.lower()):
                     print ("voc")
-                    category = "voc"
+                    category = "Vocal"
                 elif ("bong" in file.lower()):
                     print ("bong")
-                    category = "bong"
+                    category = "Bong"
                 elif ("foley" in file.lower()):
                     print ("foley")
-                    category = "foley"
+                    category = "Foley"
                 elif ("cello" in file.lower()):
                     print ("cello")
-                    category = "cello"
+                    category = "Cello"
                 elif ("viola" in file.lower()):
                     print ("viola")
-                    category = "viola"
+                    category = "Viola"
                 elif ("chorus" in file.lower()):
                     print ("chorus")
-                    category = "chorus"
+                    category = "Chorus"
                 elif ("melod" in file.lower()):
                     print ("melody")
-                    category = "melody"
+                    category = "Melody"
                 elif ("SUB" in file.lower()):
                     print ("SUB")
                     category = "BASS"
@@ -227,41 +227,42 @@ if(scan):
                     category = "fx"
                 elif ("bell" in file.lower()):
                     print ("bell")
-                    category = "bell"
+                    category = "Bell"
                 elif ("combi" in file.lower() or "combo" in file.lower()):
                     print ("combo")
-                    category = "combo"
+                    category = "Vombo"
                 elif ("downshifter" in file.lower()):
                     print ("downshifter")
-                    category = "downshifter"
+                    category = "Downshifter"
                 elif ("tambourine" in file.lower()):
                     print ("tambourine")
-                    category = "tambourine"
+                    category = "Tambourine"
                 elif ("mallet" in file.lower()):
                     print ("mallet")
-                    category = "mallet"
+                    category = "Mallet"
                 elif ("strings" in file.lower()):
                     print ("strings")
-                    category = "strings"
+                    category = "Strings"
                 elif ("sitar" in file.lower()):
                     print ("sitar")
-                    category = "sitar"
+                    category = "Sitar"
                 elif ("hook" in file.lower()):
                     print ("hook")
-                    category = "hook"
+                    category = "Hook"
                 elif ("crash" in file.lower()):
                     print ("crash")
-                    category = "crash"
+                    category = "Crash"
                 elif ("bleep" in file.lower()):
                     print ("bleep")
-                    category = "bleep"
+                    category = "Bleep"
                 elif ("ambiance" in file.lower()):
                     print ("ambiance")
-                    category = "ambiance"
+                    category = "Ambiance"
                 else:
                     print("uncategorized")
                     category = "uncategorized"
-                if(category != "druml"):
+                #Change below Drum to drum if you would like to check drums for KEYS    
+                if(category != "Drum"):
                     # Sample KEY
                     if("_f_" in file.lower() or "f_major" in file.lower() or "f_maj" in file.lower()):
                         print ("F major")
@@ -521,7 +522,7 @@ if(scan):
                         if(type == "loop"):
                             destination = destination+"\\"+str(tempo)
                     if (moveNote):
-                        if(type == "loop" and category !="drum"):
+                        if(type == "loop" and category !="Drum"):
                             destination = destination+"\\"+key
                     destination =  destination +"\\"
                     if(os.path.exists(destination)):
