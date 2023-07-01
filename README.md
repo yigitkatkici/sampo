@@ -5,4 +5,16 @@ This app aims to use librosa library and system tools to categorize samples.
 Ver1.0
 
 Creates excel file with all samples in current directory, with file information, length, loop and sample category based on filename. 
-Once categorization is fully functional, I would like to arrange samples by various categories into folders. 
+Categorization needs further fine tuning but it is functional.
+Can arrange samples in the same folder by:
+Duration (Loop/Oneshot)
+Note
+Category
+Type
+
+Next improvements: 
+  Revert Mechanism
+  Delete Folder options
+  Using library to detect key if necessary. 
+  Implementation of folder structure by wheel of fifths
+  
